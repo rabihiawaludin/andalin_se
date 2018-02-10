@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './home';
 import NameForm from './add';
-import NameFormEdit from './edit'
+import NameFormEdit from './edit';
+import ViewMahasiswa from './view';
 
 class App extends Component {
    render() {
@@ -16,6 +17,7 @@ class App extends Component {
                   <Route exact path='/' component={Home} />
                   <Route exact path='/Add' component={NameForm} />
                   <Route exact path='/edit/:id' component={NameFormEdit} />
+                  <Route exact path='/:id' component={ViewMahasiswa} />
                </Switch>
             </div>
          </Router>

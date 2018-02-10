@@ -35,6 +35,9 @@ onEdit(idMahasiswa) {
   window.location.href="/edit/"+idMahasiswa ;
 }
 
+onView(idMahasiswa){
+  window.location.href="/"+idMahasiswa ;
+}
 
   render() {
     const { hits } = this.state;
@@ -56,7 +59,7 @@ onEdit(idMahasiswa) {
                 {hits.map(hit =>
                     <tr>
                         <td>{hit.nim}</td>
-                        <td>{hit.nama}</td>
+                        <td><a onClick={() => this.onView(hit.id)}>{hit.nama}</a></td>
                         <td>{hit.prodi}</td>
                         <td>
                           <div className="col-md-2"><button onClick={() => this.onDelete(hit.id)} className="btn btn-danger">Delete</button></div>
