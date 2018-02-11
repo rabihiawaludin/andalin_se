@@ -19,25 +19,25 @@ class App extends Component {
       .then(data => this.setState({ hits: data.result }));
   }
 
-onDelete(idMahasiswa) {
-  axios.delete('http://localhost:5000/user/'+idMahasiswa)
-    .then(res => {
-        console.log(res)
-        console.log('it works')
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
-  window.location.href="/" ;
-}
+  onDelete(idMahasiswa) {
+    axios.delete('http://localhost:5000/user/'+idMahasiswa)
+      .then(res => {
+          console.log(res)
+          console.log('it works')
+      })
+      .catch(function (error) {
+          console.log(error);
+      });
+    window.location.href="/" ;
+  }
 
-onEdit(idMahasiswa) {
-  window.location.href="/edit/"+idMahasiswa ;
-}
+  onEdit(idMahasiswa) {
+    window.location.href="/edit/"+idMahasiswa ;
+  }
 
-onView(idMahasiswa){
-  window.location.href="/"+idMahasiswa ;
-}
+  onView(idMahasiswa){
+    window.location.href="/"+idMahasiswa ;
+  }
 
   render() {
     const { hits } = this.state;
@@ -52,6 +52,7 @@ onView(idMahasiswa){
                     <th>NIM</th>
                     <th>Nama</th>
                     <th>Prodi</th>
+                    <th>Kelas</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -61,6 +62,7 @@ onView(idMahasiswa){
                         <td>{hit.nim}</td>
                         <td><a onClick={() => this.onView(hit.id)}>{hit.nama}</a></td>
                         <td>{hit.prodi}</td>
+                        <td>{hit.kelas}</td>
                         <td>
                           <div className="col-md-2"><button onClick={() => this.onDelete(hit.id)} className="btn btn-danger">Delete</button></div>
                           <div className="col-md-2"><button onClick={() => this.onEdit(hit.id)} className="btn btn-warning">Edit</button></div>

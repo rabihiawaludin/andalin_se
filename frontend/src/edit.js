@@ -59,7 +59,7 @@ export default class NameFormEdit extends Component {
     }
 
   render() {
-    const { id, hits } = this.state;
+    const { hits } = this.state;
     return (
     <div>
         <div className="row" style={{paddingBottom:10}}>
